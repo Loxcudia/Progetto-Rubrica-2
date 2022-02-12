@@ -15,7 +15,7 @@ public class Contatto {
 	private String cognome;
 	
 	/** l'età del contatto. */
-	private int età;
+	private String età;
 	
 	/** il sesso del contatto; potrà assumere solo tre valori Maschio, Femmina e non binario. */
 	private String sesso;
@@ -50,7 +50,7 @@ public class Contatto {
 	 * @param indirizzo di residenza
 	 * @param email
 	 */
-	public Contatto(String name, String surname, int age, String sex, String residence, String em, Rubrica r)
+	public Contatto(String name, String surname, String age, String sex, String residence, String em, Rubrica r)
 	{
 		this.nome= name;
 		this.cognome= surname;
@@ -120,7 +120,7 @@ public class Contatto {
 	 *
 	 * @return età
 	 */
-	public int getEtà() {
+	public String getEtà() {
 		return età;
 	}
 	
@@ -129,7 +129,7 @@ public class Contatto {
 	 *
 	 * @param e: intero contenente l'età del contatto
 	 */
-	public void setEtà(int e) {
+	public void setEtà(String e) {
 		età = e;
 	}
 	

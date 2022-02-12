@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -19,6 +22,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import Controller.Controller;
+import Model.Contatto;
 import Model.Gruppo;
 
 import javax.swing.JMenuBar;
@@ -32,7 +36,7 @@ public class SchermataGruppi extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SchermataGruppi(GestioneVisibilitaGUI in, Controller cin) {
+	public SchermataGruppi(GestioneVisibilitaGUI in, Controller cin, boolean isCresc) {
 		c = in;
 		con = cin;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,6 +54,24 @@ public class SchermataGruppi extends JFrame {
 		});
 		btnNewButton.setVerticalAlignment(SwingConstants.TOP);		
 		JList<Gruppo> list = new JList<>();
+		if(isCresc == true)
+		{
+			Collections.sort(gruppo, new Comparator<Gruppo>() {
+				   @Override
+				   public int compare(Gruppo o1, Gruppo o2) {
+				      return o1.getNome().compareTo(o2.getNome());
+				   }
+				});
+		}
+		else
+		{
+			Collections.sort(gruppo, new Comparator<Gruppo>() {
+				   @Override
+				   public int compare(Gruppo o1, Gruppo o2) {
+				      return o2.getNome().compareTo(o1.getNome());
+				   }
+				});
+		}
 		gruppo = con.getRubricaGruppi();
 		gruppoModel.addAll(gruppo);
 		list.setModel(gruppoModel);

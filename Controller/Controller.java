@@ -41,7 +41,7 @@ public class Controller {
 	 * @param numf : numero fisso del contatto aggiunto
 	 * @param numb : numero mobile del contatto aggiunto
 	 */
-	public void addContatto(String nome, String cognome, int eta, String sesso, String residenza, String email, String numf, String numb, ArrayList<String> numeriS, ArrayList<AccountMessaggistica> am)
+	public void addContatto(String nome, String cognome, String eta, String sesso, String residenza, String email, String numf, String numb, ArrayList<String> numeriS, ArrayList<AccountMessaggistica> am)
 	{
 		/**
 		 *@if questo controllo serve a non far aggiungere alla rubrica gli utenti ai quali non è stato inserito 
@@ -157,6 +157,13 @@ public class Controller {
 			{
 				r.contatti.get(i).setAccountm(amin);
 			}
+		}
+	}
+	public void addContattoGruppo(Gruppo gin, ArrayList<Contatto> cin)
+	{
+		for(int i = 0; i < cin.size(); i++)
+		{
+			gin.setContatti(cin.get(i));
 		}
 	}
 	public ArrayList<Contatto> ricercaPer(String scelta, ArrayList<Contatto> in, String search)

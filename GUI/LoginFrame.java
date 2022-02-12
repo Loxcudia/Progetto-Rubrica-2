@@ -58,13 +58,13 @@ public class LoginFrame extends JFrame {
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(con.isNumeric(textField_1.getText()) == true)
+				if(con.isNumeric(textField_1.getText()) == true && textField.getText().isBlank() == false)
 				{
 					c.tryLogin(textField.getText(), textField_1.getText());
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Caratteri non validi per un numero telefonico");
+					JOptionPane.showMessageDialog(null, "Nickname o numero di telefono non validi");
 				}
 			}
 		});

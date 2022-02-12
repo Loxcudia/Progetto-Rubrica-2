@@ -14,7 +14,7 @@ public class Gruppo {
 		this.r= rub;
 		this.contatti = new ArrayList<>();
 	}
-	public void aggiungiContatto(String nome, String cognome, int età, String sesso, String residenza, String email, Rubrica ru)
+	public void aggiungiContatto(String nome, String cognome, String età, String sesso, String residenza, String email, Rubrica ru)
 	{
 		Contatto c = new Contatto(nome, cognome, età, sesso, residenza, email, ru);
 		contatti.add(c);

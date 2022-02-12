@@ -90,19 +90,18 @@ public class CreaC extends JFrame {
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(con.isNumeric(textField_5.getText()) == true && con.isNumeric(textField_6.getText()))
+				if(con.isNumeric(textField_5.getText()) == true && con.isNumeric(textField_6.getText()) == true && con.isNumeric(textField_2.getText()) == true)
 				{
 					ArrayList<String> ns = new ArrayList<>();
 					ArrayList<AccountMessaggistica> am = new ArrayList<>();
 					ns = c.getNumeriSecondari();
 					am = c.getAccountm();
-					int x = Integer.parseInt(textField_2.getText());
-					con.addContatto(textField.getText(), textField_1.getText(), x, comboBox.getSelectedItem().toString(), textField_3.getText(), textField_4.getText(), textField_5.getText(), textField_6.getText(), ns, am);
+					con.addContatto(textField.getText(), textField_1.getText(), textField_2.getText(), comboBox.getSelectedItem().toString(), textField_3.getText(), textField_4.getText(), textField_5.getText(), textField_6.getText(), ns, am);
 					c.creaContatto(textField.getText(), textField_1.getText(), textField_5.getText(), textField_6.getText());c.creaContatto(textField.getText(), textField_1.getText(), textField_5.getText(), textField_6.getText());
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Caratteri non validi per un numero telefonico");
+					JOptionPane.showMessageDialog(null, "Caratteri non validi");
 				}
 			}
 		});

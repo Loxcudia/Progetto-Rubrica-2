@@ -20,6 +20,7 @@ import Controller.Controller;
 import Model.Contatto;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 public class CreaGruppo extends JFrame {
 
@@ -95,8 +96,15 @@ public class CreaGruppo extends JFrame {
         JButton btnNewButton_2 = new JButton("Salva");
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	con.addGruppo(textField.getText(), contattigruppo);
-            	c.trySalvaGruppo();
+            	if(textField.getText().isBlank() == false)
+            	{
+            		con.addGruppo(textField.getText(), contattigruppo);
+                	c.trySalvaGruppo();
+            	}
+            	else
+            	{
+            		JOptionPane.showMessageDialog(null, "Inserisci un nome");
+            	}
             }
         });
         btnNewButton_2.setBounds(205, 353, 89, 23);

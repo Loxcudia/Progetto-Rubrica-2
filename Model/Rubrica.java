@@ -101,7 +101,7 @@ public class Rubrica {
 	 * @param numf: il numero di telefono fisso 
 	 * @param nummob: il numero di telefono mobile
 	 */
-	public void aggiungiContatto(String nome, String cognome, int età, String sesso, String residenza, String email, Rubrica r, String numf, String nummob, ArrayList<String> ns, ArrayList<AccountMessaggistica> am)
+	public void aggiungiContatto(String nome, String cognome, String età, String sesso, String residenza, String email, Rubrica r, String numf, String nummob, ArrayList<String> ns, ArrayList<AccountMessaggistica> am)
 	{
 		NumeroTelefonoFisso n1 = new NumeroTelefonoFisso(numf);
 		NumeroTelefonoMobile n2 = new NumeroTelefonoMobile(nummob);

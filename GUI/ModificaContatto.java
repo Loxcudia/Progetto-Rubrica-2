@@ -7,12 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controller.Controller;
 import Model.Contatto;
 import Model.Rubrica;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -29,12 +31,13 @@ public class ModificaContatto extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	GestioneVisibilitaGUI c;
-
+	Controller con;
 	/**
 	 * Create the frame.
 	 */
-	public ModificaContatto(GestioneVisibilitaGUI in, Contatto co, Rubrica r) {
+	public ModificaContatto(GestioneVisibilitaGUI in, Contatto co, Rubrica r, Controller cin) {
 		c = in;
+		con = cin;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 470, 420);
 		contentPane = new JPanel();
@@ -76,33 +79,39 @@ public class ModificaContatto extends JFrame {
 		JButton btnNewButton_2 = new JButton("OK");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int x = Integer.parseInt(textField_2.getText());
-				Contatto cn = new Contatto(textField.getText(), textField_1.getText(), x, textField_3.getText(), textField_4.getText(), textField_5.getText(), r);
-				if(co.getNome() != cn.getNome())
+				if(con.isNumeric(textField_2.getText()) == true)
 				{
-					co.setNome(textField.getText());
+					Contatto cn = new Contatto(textField.getText(), textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText(), r);
+					if(co.getNome() != cn.getNome())
+					{
+						co.setNome(textField.getText());
+					}
+					if(co.getCognome() != cn.getCognome())
+					{
+						co.setCognome(textField_1.getText());
+					}
+					if(co.getEtà() != cn.getEtà())
+					{
+						co.setEtà(textField_2.getText());
+					}
+					if(co.getSesso() != cn.getSesso())
+					{
+						co.setSesso(textField_3.getText());
+					}
+					if(co.getEmail() != cn.getEmail())
+					{
+						co.setEmail(textField_4.getText());
+					}
+					if(co.getResidenza() != cn.getResidenza())
+					{
+						co.setResidenza(textField_5.getText());
+					}
+					c.tryModificaContatto2();
 				}
-				if(co.getCognome() != cn.getCognome())
+				else
 				{
-					co.setCognome(textField_1.getText());
+					JOptionPane.showMessageDialog(null, "Lettere non valide per l'età");
 				}
-				if(co.getEtà() != cn.getEtà())
-				{
-					co.setEtà(x);
-				}
-				if(co.getSesso() != cn.getSesso())
-				{
-					co.setSesso(textField_3.getText());
-				}
-				if(co.getEmail() != cn.getEmail())
-				{
-					co.setEmail(textField_4.getText());
-				}
-				if(co.getResidenza() != cn.getResidenza())
-				{
-					co.setResidenza(textField_5.getText());
-				}
-				c.tryModificaContatto2();
 			}
 		});
 		

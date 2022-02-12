@@ -16,12 +16,14 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.awt.event.ActionEvent;
 
 public class VisualizzaContattiGruppo extends JFrame {
@@ -40,7 +42,7 @@ public class VisualizzaContattiGruppo extends JFrame {
 		con = cin;
 		contattigruppo = gin.getContatti();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 446, 541);
+		setBounds(100, 100, 481, 542);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -48,17 +50,25 @@ public class VisualizzaContattiGruppo extends JFrame {
 		JLabel lblNewLabel = new JLabel("Contatti presenti nel gruppo:");
 		
 		JList list = new JList();
+		LinkedHashSet<Contatto> hashSet = new LinkedHashSet<>(contattigruppo);
+		ArrayList<Contatto> contattigruppo = new ArrayList<>(hashSet);
 		contattiModel.addAll(contattigruppo);
 		list.setModel(contattiModel);
 		contentPane.add(list, BorderLayout.NORTH);
 		JButton btnNewButton = new JButton("Aggiungi");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gin.getContatti().addAll(contattigruppo);
+				c.tryAggiungiContattoGruppo(gin);
+			}
+		});
 		
 		JButton btnNewButton_1 = new JButton("Rimuovi");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int x;
 				contattiModel.remove(x = list.getSelectedIndex());
-				contattigruppo.remove(x);
+				gin.getContatti().remove(x);
 			}
 		});
 		btnNewButton_1.setBackground(Color.RED);
@@ -71,7 +81,15 @@ public class VisualizzaContattiGruppo extends JFrame {
 		JButton btnNewButton_3 = new JButton("OK");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gin.setNome(textField.getText());
+				if(textField.getText().isBlank() == false)
+				{
+					gin.setNome(textField.getText());
+					c.tryOKVisualizzaContattiGruppo();
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Inserisci un nome");
+				}
 			}
 		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

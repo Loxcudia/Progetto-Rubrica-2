@@ -2,6 +2,8 @@ package GUI;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import Controller.Controller;
 import Model.AccountMessaggistica;
 import Model.Contatto;
@@ -37,6 +39,7 @@ public class GestioneVisibilitaGUI {
 	private ModificaAccountMessaggistica mam;
 	private CreaGruppo cg;
 	private VisualizzaContattiGruppo vcg;
+	private AggiungiContattoGruppo acg;
 	//metodi:
 	public GestioneVisibilitaGUI(LoginFrame in, Controller cin) {
 		i = in;
@@ -80,13 +83,13 @@ public class GestioneVisibilitaGUI {
 		{
 			if(cre == true)
 			{
-				sg = new SchermataGruppi(this, this.c);
+				sg = new SchermataGruppi(this, this.c, true);
 				m.setVisible(false);
 				sg.setVisible(true);
 			}
 			else
 			{
-				sg = new SchermataGruppi(this, this.c);
+				sg = new SchermataGruppi(this, this.c, false);
 				m.setVisible(false);
 				sg.setVisible(true);
 			}
@@ -110,7 +113,7 @@ public class GestioneVisibilitaGUI {
 	public void tryModificaContatto(Contatto co)
 	{
 		sc.setVisible(false);
-		mc = new ModificaContatto(this, co, this.r);
+		mc = new ModificaContatto(this, co, this.r, this.c);
 		mc.setVisible(true);
 	}
 	public void tryModificaContatto2()
@@ -285,13 +288,36 @@ public class GestioneVisibilitaGUI {
 	public void trySalvaGruppo()
 	{
 		cg.setVisible(false);
-		sg = new SchermataGruppi(this, this.c);
+		sg = new SchermataGruppi(this, this.c, cre);
 		sg.setVisible(true);
 	}
 	public void tryVisualizzaContattiGruppo(Gruppo g)
 	{
 		sg.setVisible(false);
 		vcg = new VisualizzaContattiGruppo(this, this.c, g);
+		vcg.setVisible(true);
+	}
+	public void tryOKVisualizzaContattiGruppo()
+	{
+		vcg.setVisible(false);
+		sg = new SchermataGruppi(this, this.c, cre);
+		sg.setVisible(true);
+	}
+	public void tryAggiungiContattoGruppo(Gruppo gin)
+	{
+		vcg.setVisible(false);
+		acg = new AggiungiContattoGruppo(this, this.c, gin);
+		acg.setVisible(true);
+	}
+	public void tryOKAggiungiContattoGruppo(Gruppo gin)
+	{
+		acg.setVisible(false);
+		vcg = new VisualizzaContattiGruppo(this, this.c, gin);
+		vcg.setVisible(true);
+	}
+	public void tryIndietroAggiungiContattoGruppo()
+	{
+		acg.setVisible(false);
 		vcg.setVisible(true);
 	}
 	public String getNickname() {
