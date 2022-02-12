@@ -35,7 +35,7 @@ public class Gruppo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public ArrayList<Contatto> getContatti(int index) {
+	public ArrayList<Contatto> getContatti() {
 		return contatti;
 	}
 	public void setContatti(Contatto c) {

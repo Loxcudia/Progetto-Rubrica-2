@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Classi.AccountMessaggistica;
 import Classi.Contatto;
 import Classi.DBConnection;
+import Classi.Gruppo;
 import Classi.NumeroTelefonoFisso;
 import Classi.NumeroTelefonoMobile;
 import Classi.Rubrica;
@@ -35,6 +36,7 @@ public class GestioneVisibilitaGUI {
 	private AggiungiAccountMessaggistica2 aam2;
 	private ModificaAccountMessaggistica mam;
 	private CreaGruppo cg;
+	private VisualizzaContattiGruppo vcg;
 	//metodi:
 	public GestioneVisibilitaGUI(LoginFrame in, Controller cin) {
 		i = in;
@@ -285,6 +287,12 @@ public class GestioneVisibilitaGUI {
 		cg.setVisible(false);
 		sg = new SchermataGruppi(this, this.c);
 		sg.setVisible(true);
+	}
+	public void tryVisualizzaContattiGruppo(Gruppo g)
+	{
+		sg.setVisible(false);
+		vcg = new VisualizzaContattiGruppo(this, this.c, g);
+		vcg.setVisible(true);
 	}
 	public String getNickname() {
 		return nickname;

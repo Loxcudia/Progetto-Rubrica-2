@@ -57,7 +57,7 @@ public class SchermataGruppi extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Gruppo gr= gruppo.get(list.getSelectedIndex());
-				
+				c.tryVisualizzaContattiGruppo(gr);
 			}
 		});
 		
@@ -73,13 +73,6 @@ public class SchermataGruppi extends JFrame {
 		btnNewButton_2.setForeground(Color.BLACK);
 		
 		JLabel lblNewLabel = new JLabel("Ecco i tuoi gruppi!");
-		
-		JButton btnNewButton_3 = new JButton("Modifica");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		JButton btnNewButton_4 = new JButton("Indietro");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,15 +91,13 @@ public class SchermataGruppi extends JFrame {
 							.addGap(258))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(10)
-							.addComponent(list, GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+							.addComponent(list, GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
 							.addGap(296)))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-							.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-								.addComponent(btnNewButton, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
@@ -117,14 +108,12 @@ public class SchermataGruppi extends JFrame {
 						.addComponent(lblNewLabel)
 						.addComponent(btnNewButton_4))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(list, GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnNewButton_3)
-							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnNewButton_1)
-							.addGap(24)
-							.addComponent(btnNewButton_2))
-						.addComponent(list, GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
+							.addGap(17)
+							.addComponent(btnNewButton_2)))
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
