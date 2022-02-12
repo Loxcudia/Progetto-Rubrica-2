@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Classi.AccountMessaggistica;
-import Classi.Contatto;
 import Controller.Controller;
+import Model.AccountMessaggistica;
+import Model.Contatto;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;

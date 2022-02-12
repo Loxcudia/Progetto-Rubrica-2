@@ -2,14 +2,14 @@ package GUI;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
-import Classi.AccountMessaggistica;
-import Classi.Contatto;
-import Classi.DBConnection;
-import Classi.Gruppo;
-import Classi.NumeroTelefonoFisso;
-import Classi.NumeroTelefonoMobile;
-import Classi.Rubrica;
 import Controller.Controller;
+import Model.AccountMessaggistica;
+import Model.Contatto;
+import Model.DBConnection;
+import Model.Gruppo;
+import Model.NumeroTelefonoFisso;
+import Model.NumeroTelefonoMobile;
+import Model.Rubrica;
 public class GestioneVisibilitaGUI {
 	//attributi:
 	private Controller c;

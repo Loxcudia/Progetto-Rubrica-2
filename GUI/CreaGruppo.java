@@ -16,8 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
-import Classi.Contatto;
 import Controller.Controller;
+import Model.Contatto;
 
 import javax.swing.JList;
 

@@ -8,9 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Classi.Rubrica;
 import Controller.Controller;
-import Classi.Contatto;
+import Model.Contatto;
+import Model.Rubrica;
 
 import javax.swing.JList;
 import javax.swing.JMenuBar;

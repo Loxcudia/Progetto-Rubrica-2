@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Classi.Contatto;
-import Classi.Rubrica;
+import Model.Contatto;
+import Model.Rubrica;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;

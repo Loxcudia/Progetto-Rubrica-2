@@ -7,10 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Classi.Contatto;
-import Classi.NumeroTelefonoFisso;
-import Classi.NumeroTelefonoMobile;
 import Controller.Controller;
+import Model.Contatto;
+import Model.NumeroTelefonoFisso;
+import Model.NumeroTelefonoMobile;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;

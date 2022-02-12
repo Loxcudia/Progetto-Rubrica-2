@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Classi.Contatto;
-import Classi.Gruppo;
 import Controller.Controller;
+import Model.Contatto;
+import Model.Gruppo;
 
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;

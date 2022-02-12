@@ -17,8 +17,10 @@ import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
-import Classi.Gruppo;
+
 import Controller.Controller;
+import Model.Gruppo;
+
 import javax.swing.JMenuBar;
 public class SchermataGruppi extends JFrame {
 	private JPanel contentPane;

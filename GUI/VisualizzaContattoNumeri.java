@@ -8,10 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Classi.Contatto;
-import Classi.NumeroTelefonoFisso;
-import Classi.NumeroTelefonoMobile;
 import Controller.Controller;
+import Model.Contatto;
+import Model.NumeroTelefonoFisso;
+import Model.NumeroTelefonoMobile;
+
 import javax.swing.JLabel;
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;

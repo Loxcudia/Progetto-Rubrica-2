@@ -3,16 +3,15 @@
  */
 package Controller;
 
-import Classi.Rubrica;
-
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
-import Classi.AccountMessaggistica;
-import Classi.Contatto;
-import Classi.Gruppo;
-import Classi.NumeroTelefonoFisso;
-import Classi.NumeroTelefonoMobile;
+import Model.AccountMessaggistica;
+import Model.Contatto;
+import Model.Gruppo;
+import Model.NumeroTelefonoFisso;
+import Model.NumeroTelefonoMobile;
+import Model.Rubrica;
 
 /**
  * The Class Controller.
