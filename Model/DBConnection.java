@@ -9,7 +9,6 @@ public class DBConnection {
 	private static DBConnection instance;
 	private Connection c;
 	private Statement s;
-	private ResultSet rs;
 	private DBConnection()
 	{
 		

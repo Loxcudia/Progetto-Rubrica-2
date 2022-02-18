@@ -1,10 +1,8 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.LinkedHashSet;
 
 /**
  *Classe Rubrica.
@@ -31,18 +29,18 @@ public class Rubrica {
 	}
 	
 	/**
-	 * Gets the nome.
+	 * Gets and Set del nome, riferito all'utente.
 	 *
-	 * @return the nome
+	 * @return nome
 	 */
 	public String getNome() {
 		return nome;
 	}
 
 	/**
-	 * Sets the nome.
+	 * Setta il nome.
 	 *
-	 * @param nome the new nome
+	 * @param nome: stringa contenente il nome dell'utente
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -52,39 +50,38 @@ public class Rubrica {
 	 * getContatti
 	 *
 	 * @param index: indice definito
-	 * @return il contatto dall'array contatti di indice index 
+	 * @return l'array contatti.
 	 */
 	public ArrayList<Contatto> getContatti() {
 		return contatti;
 	}
 
 	/**
-	 * Setta il .
-	 *
-	 * @param c: contatto
+	 * Setta l'array list contatti o gli aggiunge un contatto .
+	 * @param c: contatto da aggiungere all'array list contatti
 	 */
 	public void setContatti(Contatto c) {
-		this.contatti.add(c);
+		contatti.add(c);
 		c.setRub(this);
 	}
 	
 	/**
-	 * Gets the gruppi.
+	 * Instanzazione del'array list gruppi
 	 *
-	 * @param index the index
-	 * @return the gruppi
+	 * @param index: indice definito
+	 * @return l'array gruppi
 	 */
 	public Gruppo getGruppi(int index) {
 		return gruppi.get(index);
 	}
 
 	/**
-	 * Sets the gruppi.
+	 * Setta l'array gruppi o gli aggiunge un nuovo gruppo.
 	 *
-	 * @param g the new gruppi
+	 * @param g: il nuovo gruppo da aggiungere all'array gruppi
 	 */
 	public void setGruppi(Gruppo g) {
-		this.gruppi.add(g);
+		gruppi.add(g);
 		g.setR(this);
 	}
 	
@@ -100,6 +97,10 @@ public class Rubrica {
 	 * @param r: l'ogetto rubrica che si sta usando
 	 * @param numf: il numero di telefono fisso 
 	 * @param nummob: il numero di telefono mobile
+	 * @param am: l'array list degli account di messaggistica
+	 * @param ns: l'array list dei numeri di telefono secondari
+	 * In questo metodo viene effettuato il controllo per verificare
+	 * che il numero di telefono non sia composto da lettere
 	 */
 	public void aggiungiContatto(String nome, String cognome, String età, String sesso, String residenza, String email, Rubrica r, String numf, String nummob, ArrayList<String> ns, ArrayList<AccountMessaggistica> am)
 	{
@@ -151,8 +152,9 @@ public class Rubrica {
 	/**
 	 * Aggiungi gruppo.
 	 *
-	 * @param nome the nome
-	 * @param r the r
+	 * @param nome: nome del gruppo
+	 * @param r: la rubrica
+	 * la modifica viene effettuata in place
 	 */
 	public void aggiungiGruppo(String nome, Rubrica r, ArrayList<Contatto> in)
 	{
@@ -167,7 +169,7 @@ public class Rubrica {
 	/**
 	 * Elimina gruppo.
 	 *
-	 * @param g the g
+	 * @param g: il gruppo da eliminare
 	 */
 	public void eliminaGruppo(Gruppo g)
 	{
@@ -183,7 +185,7 @@ public class Rubrica {
 	/**
 	 * Mostra contatti per è un metodo che ordina la rubrica in ordine crescente o decrescente 
 	 * usando la funzione Collection.sort
-	 *
+	 * La modifica avviene in place
 	 * @param scelta: scelta può assumere solo 2 valori, crescente e decrescente
 	 */
 	public void mostraContattiPer(String scelta)

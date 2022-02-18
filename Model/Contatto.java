@@ -2,9 +2,8 @@ package Model;
 
 import java.util.ArrayList;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Contatto.
+ * La classe Contatto.
  */
 public class Contatto {
 	
@@ -49,16 +48,18 @@ public class Contatto {
 	 * @param sesso 
 	 * @param indirizzo di residenza
 	 * @param email
+	 * Infine il metodo Contatto inizializzi gli array: NumeroTelefonoFisso,
+	 * NumeroTelefonoMobile e AccountMessaggistica
 	 */
 	public Contatto(String name, String surname, String age, String sex, String residence, String em, Rubrica r)
 	{
-		this.nome= name;
-		this.cognome= surname;
-		this.età= age;
-		this.sesso= sex;
-		this.residenza= residence;
-		this.email= em;
-		this.rub= r;
+		nome= name;
+		cognome= surname;
+		età= age;
+		sesso= sex;
+		residenza= residence;
+		email= em;
+		rub= r;
 		numeritelefonicif = new ArrayList<NumeroTelefonoFisso>();
 		numeritelefonicim = new ArrayList<NumeroTelefonoMobile>();	
 		accountm = new ArrayList<AccountMessaggistica>();
@@ -73,6 +74,11 @@ public class Contatto {
 	public Rubrica getRub() {
 		return rub;
 	}
+	/**
+	 * Setta la rubrica.
+	 *
+	 * @return rubrica
+	 */
 	
 	public void setRub(Rubrica rub) {
 		this.rub = rub;
@@ -88,9 +94,9 @@ public class Contatto {
 	}
 	
 	/**
-	 * Sets the nome.
+	 * Setta il nome del contatto
 	 *
-	 * @param n the new nome
+	 * @param n: Stringa contenente il nome del contatto
 	 */
 	public void setNome(String n)
 	{
@@ -109,7 +115,7 @@ public class Contatto {
 	/**
 	 * Setta il cognome
 	 *
-	 * @param c: stringa contenente il cognome
+	 * @param c: stringa contenente il cognome del contatto
 	 */
 	public void setCognome(String c) {
 		cognome = c;
@@ -127,7 +133,7 @@ public class Contatto {
 	/**
 	 * Setta l'età
 	 *
-	 * @param e: intero contenente l'età del contatto
+	 * @param e: stringa contenente l'età del contatto
 	 */
 	public void setEtà(String e) {
 		età = e;
@@ -181,15 +187,12 @@ public class Contatto {
 	/**
 	 * Setta l'email.
 	 *
-	 * @param e: stringa contenente l'email dell'utente
+	 * @param e: stringa contenente l'email del contatto
 	 */
 	public void setEmail(String e) {
 		email = e;
 	}
-	
-	
 
-	
 	/**
 	 * Gets and Sets dell' array che contiene gli account di messaggistica del contatto.
 	 * @return Array di account
@@ -201,7 +204,7 @@ public class Contatto {
 	/**
 	 * Setta l'array degli account di messaggistica
 	 *
-	 * @param am: stringa contenente l'account di messaggistica
+	 * @param am: stringa contenente l'account di messaggistica del contatto
 	 */
 	public void setAccountm(AccountMessaggistica am) {
 		this.accountm.add(am);
@@ -248,9 +251,10 @@ public class Contatto {
 	}
 	
 	/**
-	 * To string.
+	 *toString è l'override del metodo toString(), usata per ritornare la
+	 *concatenazione tra il @return nome e il @return cognome del contatto.
 	 *
-	 * @return the string
+	 * @return concatenazione di nome e cognome del contatto.
 	 */
 	@Override
 	public String toString()
@@ -259,9 +263,11 @@ public class Contatto {
 	}
 	
 	/**
-	 * Gets the info.
-	 *
-	 * @return the info
+	 * Il metodo getInfo è utilizzato per concatenare tra loro le stringhe 
+	 * delle variabili @return nome, @return cognome, @return email 
+	 * @return età, @return sesso, @return residenza
+	 * tutte precedute dal significato che ha la variabile e dai due punti
+	 * @return concatenazione delle stringhe: nome, cognome, email, età , sesso, residenza
 	 */
 	public String getInfo()
 	{

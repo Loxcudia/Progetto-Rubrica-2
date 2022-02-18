@@ -61,9 +61,8 @@ public class NumeroTelefono {
 	}
 	
 	/**
-	 * To string.
-	 *
-	 * @return the string
+	 * toString è l'override dell'omonimo metodo.
+	 * @return numero: ritorna il numero telefonico
 	 */
 	@Override
 	public String toString()

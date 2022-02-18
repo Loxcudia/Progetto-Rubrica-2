@@ -21,6 +21,7 @@ public class AccountMessaggistica {
 	/**
 	 * Inizializzazione di un nuovo account di messaggistica.
 	 *La modifica avviene in Place
+	 * @param nick è il paramentro inserito dall'utente e si riferisce al nickname
 	 * @param fo è il paramentro inserito dall'utente e si riferisce al fornitore
 	 * @param em è il paramentro inserito dall'utente e si riferisce all'email
 	 * @param fb è il è il paramentro inserito dall'utente e si riferisce alla frase di benvenuto
@@ -100,26 +101,50 @@ public class AccountMessaggistica {
 	}
 
 	/**
-	 *Metodo per settare un contatto, passato come parametro, all'oggetto AccountMessaggistica attuale 
+	 * Metodo per settare un contatto, passato come parametro, all'oggetto AccountMessaggistica attuale 
 	 *
 	 * @param c il contatto
 	 */
 	public void setC(Contatto c) {
 		this.c = c;
 	}
+	
+	/**
+	 * Gets and sets per l'attributo nickname
+	 *
+	 * @return nickname
+	 */
 
 	public String getNickname() {
 		return nickname;
 	}
+	
+	/**
+	 * Metodo per settare un nickname, passato come parametro, all'oggetto AccountMessaggistica attuale 
+	 *
+	 * @param c il contatto
+	 */
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
 	@Override
+	/**
+	 * L'ovveride del metodo toString è utilizzato per ritornare una concatenazione 
+	 * di stringhe, delle variabili @return nickname, @return Fornitore.
+	 *
+	 */
 	public String toString()
 	{
 		return "Nick: " + nickname + " Fornitore: " + fornitore;
 	}
+	/**
+	 * Il metodo getInfo è utilizzato per concatenare tra loro le stringhe 
+	 * delle variabili @return nickname, @return Fornitore, @return email
+	 * @return frase_benvenuto, tutte precedute dal significato che ha la variabile 
+	 * e dai due punti
+	 */
+	
 	public String getInfo()
 	{
 		return "Nick: " + nickname + ", Fornitore: " + fornitore + ", Email: " + email + ", Frase di Benvenuto: " + frase_benvenuto;
