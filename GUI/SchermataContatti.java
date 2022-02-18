@@ -191,6 +191,14 @@ public class SchermataContatti extends JFrame {
 					}
 					
 				}});
+		
+		JButton btnNewButton_8 = new JButton("Annulla Ricerca");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contattiModel.clear();
+				contattiModel.addAll(contatti);
+			}
+		});
 	
 		
 		
@@ -200,33 +208,35 @@ public class SchermataContatti extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(82)
-					.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+					.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_5, GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+					.addComponent(btnNewButton_5, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_6, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+					.addComponent(btnNewButton_6, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
 					.addGap(40))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+							.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
 							.addGap(187)
 							.addComponent(lblNewLabel)
 							.addGap(317))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton_7, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(btnNewButton_7, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnNewButton_8)
+							.addGap(19)
 							.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(247)))
+							.addGap(137)))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-						.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-						.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)))
+						.addComponent(btnNewButton_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+						.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+						.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(list, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
@@ -240,8 +250,8 @@ public class SchermataContatti extends JFrame {
 						.addComponent(lblNewLabel)
 						.addComponent(btnNewButton_4))
 					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(btnNewButton_3)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnNewButton_2))
@@ -249,8 +259,9 @@ public class SchermataContatti extends JFrame {
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnNewButton_7)
+								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_2)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(btnNewButton_8))
 							.addPreferredGap(ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
 							.addComponent(list)))
 					.addGap(480)
