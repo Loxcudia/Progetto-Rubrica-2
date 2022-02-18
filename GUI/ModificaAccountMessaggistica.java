@@ -20,21 +20,36 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * La Classe ModificaAccountMessaggistica consente la modifica dei dati degli account di messaggistica.
+ */
 public class ModificaAccountMessaggistica extends JFrame {
-
 	private JPanel contentPane;
-	private Controller con;
+	
+	
+	/** c è la variabile usata per gestire la visibilità delle finestre */
 	private GestioneVisibilitaGUI c;
+	
+	/** textfield è la variabile dove verrà inserito il nickname*/
 	private JTextField textField;
+	
+	/** textfield_1 è la variabile dove verrà inserita l'email */
 	private JTextField textField_1;
+	
+	/** textfield_2 è la variabile dove verrà inserito il fornitore */
 	private JTextField textField_2;
 	
+	/** textArea è la variabile dove verrà inserita la frase di benvenuto */
+	private JTextArea textArea;
 	/**
-	 * Create the frame.
+	 * Creazione del frame.
+	 *
+	  *@param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 *@param cin è la variabile del controller
+	 * @param amin è la variabile che si riferisce all'account di messaggistica da modificare
 	 */
 	public ModificaAccountMessaggistica(GestioneVisibilitaGUI in, Controller cin, AccountMessaggistica amin) {
 		c = in;
-		con = cin;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 584, 358);
 		contentPane = new JPanel();
@@ -60,7 +75,12 @@ public class ModificaAccountMessaggistica extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("Frase di benvenuto:");
 		
-		JTextArea textArea = new JTextArea(amin.getFrase_benvenuto());
+		textArea = new JTextArea(amin.getFrase_benvenuto());
+		
+		/**
+		 * Quando il pulsante 'ok' viene cliccato il metodo passa i contenuti dei textField e del textArea alle
+		 * apposite funzioni che salveranno la modifica
+		 */
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -72,6 +92,10 @@ public class ModificaAccountMessaggistica extends JFrame {
 				c.tryOKModificaAccountMessaggistica(amin.getC());
 			}
 		});
+		
+		/**
+		 * Se si clicca il pulsante annulla si cambierà finestra e le modifiche effettuate andranno perse
+		 */
 		
 		JButton btnNewButton_1 = new JButton("Annulla");
 		btnNewButton_1.addActionListener(new ActionListener() {

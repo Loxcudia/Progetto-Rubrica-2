@@ -26,15 +26,38 @@ import Model.Contatto;
 import Model.Gruppo;
 
 import javax.swing.JMenuBar;
+
+
+/**
+ * La Classe SchermataGruppi ci consente di visualizzare tutti i gruppi, crearne altri 
+ * ed effettuare modifiche ad esse
+ */
 public class SchermataGruppi extends JFrame {
+	
+
 	private JPanel contentPane;
+	
+	/** c è la variabile che usiamo per gestire la visibilità. */
 	private GestioneVisibilitaGUI c;
+	
+	/** con è la variabile associata al controller. */
 	private Controller con;
+	
+	/** nomegruppo è la variabile contenente il nome del gruppo. */
 	private String nomeGruppo = "";
+	
+	/** gruppoModel è la lista model che ci consente di tenere la pagina aggiornata ad  ogni modifica. */
 	private DefaultListModel<Gruppo> gruppoModel = new DefaultListModel<>();
+	
+	/** gruppo è l'array list contenente tutti i gruppi. */
 	private ArrayList<Gruppo> gruppo = new ArrayList<>();
+	
 	/**
-	 * Create the frame.
+	 * Instanziamo una nuova schermata gruppi
+	 *
+	 *@param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 *@param cin è la variabile del controller
+	 *@param isCresc è la variabile che serve per sapere se bisogna stampare i contatti in ordine decrescente o crescente
 	 */
 	public SchermataGruppi(GestioneVisibilitaGUI in, Controller cin, boolean isCresc) {
 		c = in;

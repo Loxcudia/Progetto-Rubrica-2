@@ -1,11 +1,9 @@
 package GUI;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import Controller.Controller;
 
@@ -15,7 +13,7 @@ public class Main extends JFrame {
 			public void run() {
 				try {
 					Controller c=new Controller();
-					LoginFrame window = new LoginFrame(c);
+					new LoginFrame(c);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

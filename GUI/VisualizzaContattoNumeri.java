@@ -26,17 +26,37 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import java.awt.Color;
 
+/**
+ * La Classe VisualizzaContattoNumeri consente di visualizzare i numeri di telefono
+ * relativi a unncontatto
+ */
 public class VisualizzaContattoNumeri extends JFrame {
 
 	private JPanel contentPane;
-	private Controller con;
+	
+	/** c è la variabile che usiamo per gestire la visibilità. */
 	private GestioneVisibilitaGUI c;
+	
+	/** con è la variabile associata al controller. */
+	private Controller con;
+	
+	/** nf model è una list model che serve per tenere aggiornata la pagina ad ogni modifica. */
 	private DefaultListModel<NumeroTelefonoFisso> nfModel = new DefaultListModel<>();
+	
+	/**nm model è una list model che serve per tenere aggiornata la pagina ad ogni modifica. */
 	private DefaultListModel<NumeroTelefonoMobile> nmModel = new DefaultListModel<>();
+	
+	/** numerifissi è l'aary list dei numeri fissi relativi all'utente. */
 	private ArrayList<NumeroTelefonoFisso> numerifissi= new ArrayList<>();
+	
+	/** numerimobili è l'aary list dei numeri mobili relativi all'utente. */
 	private ArrayList<NumeroTelefonoMobile> numerimobili= new ArrayList<>();
+	
 	/**
-	 * Create the frame.
+	 *
+	 * @param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 * @param cin è la variabile del controller
+	 * @param coin è la variabile relativa al contatto
 	 */
 	public VisualizzaContattoNumeri(Controller cin, GestioneVisibilitaGUI in, Contatto coin) {
 		con = cin;
@@ -141,39 +161,38 @@ public class VisualizzaContattoNumeri extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 74, Short.MAX_VALUE)
 					.addGap(47)
-					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
 					.addGap(227))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
 					.addGap(510))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(502))
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(list, GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+					.addComponent(list, GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
 					.addContainerGap())
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(btnNewButton_4, GroupLayout.PREFERRED_SIZE, 68, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-					.addGap(321))
+					.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+					.addGap(266))
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(list_1, GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-					.addContainerGap())
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+					.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_5, GroupLayout.PREFERRED_SIZE, 40, Short.MAX_VALUE)
+					.addComponent(btnNewButton_5, GroupLayout.PREFERRED_SIZE, 82, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
 					.addGap(268))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(list_1, GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -194,12 +213,12 @@ public class VisualizzaContattoNumeri extends JFrame {
 					.addComponent(lblNewLabel_2)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton_4)
 						.addComponent(btnNewButton_2)
-						.addComponent(btnNewButton_1)
-						.addComponent(btnNewButton_4))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(list_1)
-					.addContainerGap(136, Short.MAX_VALUE))
+						.addComponent(btnNewButton_1))
+					.addGap(18)
+					.addComponent(list_1, GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
 	}

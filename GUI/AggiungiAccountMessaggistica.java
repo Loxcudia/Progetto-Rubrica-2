@@ -21,22 +21,43 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * La Classe AggiungiAccountMessaggistica consente l'inserimento di un account
+ * di messaggistica relativi all'account che si sta creando. 
+ * Il metodo può essere chiamato più volte
+ */
 public class AggiungiAccountMessaggistica extends JFrame {
 
+
 	private JPanel contentPane;
+	
+	/**text field è lo spazio dove l'utente inserirà il nickname. */
 	private JTextField textField;
+	
+	/** text field 1 è lo spazio dove l'utente inserirà l'email relativa all'account di messaggistica. */
 	private JTextField textField_1;
+	
+	/**Text field 2 è lo spazio dove l'utente inserirà il fornitore. */
 	private JTextField textField_2;
+	
+	/** textArea è lo spazio dove l'utente potrà inserire la frase di benvenuto*/
+	private JTextArea textArea;
+	
+	/**con: variabile del controller */
 	Controller con;
+	
+	/** c: variabile per gestire la visibilità. */
 	GestioneVisibilitaGUI c;
 	
 
 	/**
-	 * Create the frame.
+	 * Creazione del frame
+	 *
+	 * @param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
 	 */
 	public AggiungiAccountMessaggistica(GestioneVisibilitaGUI in, Controller cin) {
 		c = in;
-		con = cin;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 553, 380);
 		contentPane = new JPanel();
@@ -62,7 +83,11 @@ public class AggiungiAccountMessaggistica extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("Frase di benvenuto:");
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
+		/**
+		 * Quando il pulsante ok verrà cliccato verranno salvati tutti i dati inseriti nei vari textField
+		 * in un ogetto di accountmessaggistica
+		 */
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -72,6 +97,10 @@ public class AggiungiAccountMessaggistica extends JFrame {
 			}
 		});
 		
+		/**
+		 * Quando il pulsante annulla verrà cliccato si ritornerà alla schermata precedente perdendo i dati inseriti
+		 * nei vai text field
+		 */
 		JButton btnNewButton_1 = new JButton("Annulla");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

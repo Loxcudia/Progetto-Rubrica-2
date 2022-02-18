@@ -22,15 +22,31 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * La Classe ModificaNumeroTelefono consete la modifica di un numero telefonico.
+ */
 public class ModificaNumeroTelefono extends JFrame {
 
 	private JPanel contentPane;
+	
+	/** con è la variabile associata al controller. */
 	private Controller con;
+	
+	/** c è la variabile che usiamo per gestire la visibilità delle finestre */
 	private GestioneVisibilitaGUI c;
+	
+	/** textField è la variabile dove verrà inserito il nuovo numero di telefono. */
 	private JTextField textField;
 
 	/**
-	 * Create the frame.
+	 * Instantiates a new modifica numero telefono.
+	 *
+	  *@param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 * @param cin è la variabile del controller
+	 * @param nfin è la variabile associata al numero di telefono fisso
+	 * @param nmin è la variabile associata al numero di telefono mobile
+	 * @param coin è la variabile associata al contatto al quale è associato il numero di telefono
 	 */
 	public ModificaNumeroTelefono(GestioneVisibilitaGUI in, Controller cin, NumeroTelefonoFisso nfin, NumeroTelefonoMobile nmin, Contatto coin) {
 		c= in;
@@ -47,6 +63,10 @@ public class ModificaNumeroTelefono extends JFrame {
 		textField.setColumns(10);
 		
 		
+		/**
+		 * 	La funzione il base al valore del paramentro passato in imput chiamerà il metodo SetNumero o della classe
+		 *  NumeroTelefonoFisso o NumeroTelefonoMobile. Se non viene inserito nessun numero si torna alla schermata precedente
+		 */
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,6 +90,11 @@ public class ModificaNumeroTelefono extends JFrame {
 		});
 		
 		JButton btnNewButton_1 = new JButton("Annulla");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				c.tryIndietroModificaNumero(coin);
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

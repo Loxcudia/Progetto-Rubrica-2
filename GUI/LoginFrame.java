@@ -19,17 +19,32 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * La Classe LoginFrame serve per far effettuare un login all'utente
+ */
 public class LoginFrame extends JFrame {
 
+
 	private JPanel contentPane;
+	
+	/** text field è la variabile dove l'utente inserirà il nickname */
 	private JTextField textField;
+	
+	/** text field 1 è la variabile dove l'utente inserirà il suo numero telefonico */
 	private JTextField textField_1;
+	
+	/** c è la variabile che usiamo per gestire la visibilità */
 	private GestioneVisibilitaGUI c;
+	
+	/** con e la variabile associata al controller. */
 	Controller con;
 	
 
 	/**
-	 * Create the frame.
+	 * Creazione del frame per il login.
+	 *
+	 * @param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
 	 */
 	public LoginFrame(Controller in)
 	{
@@ -37,6 +52,7 @@ public class LoginFrame extends JFrame {
 		c = new GestioneVisibilitaGUI(this, con);
 		initialize(c);
 	}
+
 	public void initialize(GestioneVisibilitaGUI in) {
 		c = in;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,6 +70,12 @@ public class LoginFrame extends JFrame {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
+		
+		/**
+		 * quando viene premuto il pulsante 'ok' il programma controllerà che il nickname non sia vuoto o composto
+		 * da soli spazi e il numero di telefono sia composto da soli numeri; in tal caso chiamerà la funzione trylogin 
+		 * della classe GestioneVisibilità. In caso contrario apre un pop-up che segnala l'errore
+		 */
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {

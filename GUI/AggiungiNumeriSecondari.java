@@ -20,14 +20,37 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * La Classe AggiungiNumeriSecondari consente di aggiungere un numero di telefono
+ * secondario durante la creazione del'utente al quale sarà riferito.
+ * Il metodo può essere chiamato più volte
+ */
 public class AggiungiNumeriSecondari extends JFrame {
 
+
 	private JPanel contentPane;
+
+	/** tipo è larray di dimensione 2 di stringhe con la quale controlleremo la tipologia del numero di telefono inserito del contatto. */
+	String[] tipo = {"Fisso", "Mobile"};
+	
+	/** combobox è il menù a tendina all'interno del quale l'utente selezionerà la tipologia del numero di telefono inserito. */
+	private JComboBox combobox= new JComboBox(tipo);
+	
+	/** Nel text field verrà inserito il numero di telefono. */
 	private JTextField textField;
+	
+	/** con è la variabile che si riferisce al controller. */
 	Controller con;
+	
+	/** c è la variabile usata per la gestione della visibilità. */
 	GestioneVisibilitaGUI c;
+	
 	/**
-	 * Create the frame.
+	 * Creazione del frame.
+	 *
+	 *@param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 *@param cin è la variabile del controller
 	 */
 	public AggiungiNumeriSecondari(GestioneVisibilitaGUI in, Controller cin) {
 		c = in;
@@ -45,16 +68,19 @@ public class AggiungiNumeriSecondari extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Tipologia:");
 		
 		textField = new JTextField();
-		textField.setColumns(10);
-		String[] x = {"F", "M"};
-		JComboBox comboBox = new JComboBox(x);
+		
+		/**
+		 * Quando il pulsante ok verrà cliccato verrà passato il numero di telefono e la
+		 * sua tipologia alla funzione AggiungiNumeroSecondario
+		 * Se i caratteri inseriti non sono validi verrà aperto un pop-up che spiega l'errore
+		 */
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(con.isNumeric(textField.getText()) == true)
 				{
-					if(comboBox.getSelectedItem().equals("F"))
+					if(combobox.getSelectedItem().equals("Fisso"))
 					{
 						c.AggiuntaNumeroSecondario("F", textField.getText());
 					}
@@ -69,6 +95,10 @@ public class AggiungiNumeriSecondari extends JFrame {
 				}
 			}
 		});
+		
+		/**
+		 * Quando il pulsante annulla verrà cliccato si ritornerà alla schermata precedente perdendo i dati inseriti
+		 */
 		
 		JButton btnNewButton_1 = new JButton("Annulla");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -86,7 +116,7 @@ public class AggiungiNumeriSecondari extends JFrame {
 						.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(combobox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
 					.addGap(363))
 				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
@@ -113,7 +143,7 @@ public class AggiungiNumeriSecondari extends JFrame {
 					.addGap(33)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_2)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(combobox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(65)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNewButton_1)

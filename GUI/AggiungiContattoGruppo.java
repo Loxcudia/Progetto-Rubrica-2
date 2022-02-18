@@ -23,16 +23,39 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * The Class AggiungiContattoGruppo consente di selzionare uno per volta i contatti
+ * che verranno aggiunti a un gruppo. Ogni volta che si clicca su un contatto bisognerà
+ * cliccare anche il tasto seleziona, prima di passare al prossimo account da aggiungere.
+ * Una volta terminata la selezione si dovrà cliccare sul tasto 'ok'
+ */
 public class AggiungiContattoGruppo extends JFrame {
 
 	private JPanel contentPane;
+	
+	/** c: variabile per gestire la visibilità. */
 	GestioneVisibilitaGUI c;
+	
+	/**con: variabile del controller */
 	Controller con;
+	
+	/** contattimodel sarà una lista model. Questo consente 
+	 * l'aggiornamento della finestra a ogni modifica */
 	private DefaultListModel<Contatto> contattiModel = new DefaultListModel<>();
+	
+	/** contatti è l'array list che conterrà tutti i contatti. */
 	ArrayList<Contatto> contatti = new ArrayList<Contatto>();
+	
+	/** The contattigruppo è l'array list che conterrà tutti i gruppi. */
 	ArrayList<Contatto> contattigruppo = new ArrayList<Contatto>();
+	
 	/**
-	 * Create the frame.
+	 * creazione del frame
+	 *
+	 * @param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 * @param cin è la variabile del controller
+	 * @param gin è la variabile che riferisce a un gruppo
 	 */
 	public AggiungiContattoGruppo(GestioneVisibilitaGUI in, Controller cin, Gruppo gin) {
 		c = in;
@@ -43,6 +66,7 @@ public class AggiungiContattoGruppo extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+	
 		
 		JLabel lblNewLabel = new JLabel("Seleziona i contatti da aggiungere al gruppo:");
 		JList list = new JList();
@@ -62,15 +86,18 @@ public class AggiungiContattoGruppo extends JFrame {
 			}
 		});
 		
-		
-		
-		
+		/**
+		* Quando il pulsante indietro verrà cliccato si ritornerà alla schermata
+		*  precedente senza salvare i contatti selezionati nel gruppo
+		*/
 		JButton btnNewButton_1 = new JButton("Indietro");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				c.tryIndietroAggiungiContattoGruppo();
 			}
 		});
+		
+		
 		
 		JButton btnNewButton_2 = new JButton("OK");
 		btnNewButton_2.addActionListener(new ActionListener() {

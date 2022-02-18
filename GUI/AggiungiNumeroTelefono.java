@@ -22,15 +22,31 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * La Class AggiungiNumeroTelefono permette di aggiungere uno o più numeri di telefono
+ * a un contatto
+ */
 public class AggiungiNumeroTelefono extends JFrame {
 
 	private JPanel contentPane;
+	
+	/** con è la variabile associata al controller. */
 	private Controller con;
+	
+	/** c è la variabile usata per gestire la visibilità. */
 	private GestioneVisibilitaGUI c;
+	
+	/** Nel text field l'utente inserirà il numero di telefono aggiungere all'account */
 	private JTextField textField;
 	
 	/**
 	 * Create the frame.
+	 *
+	 * @param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 * @param cin è la variabile del controller
+	 * @param scelta è la variabile scelta che dipende da quale pulsante si è usato per arrivare a questa finestra
+	 * @param coin è la variabile che riferisce a un contatto
 	 */
 	public AggiungiNumeroTelefono(GestioneVisibilitaGUI in, Controller cin, String scelta, Contatto coin) {
 		c = in;
@@ -45,6 +61,16 @@ public class AggiungiNumeroTelefono extends JFrame {
 		textField = new JTextField();
 		textField.setColumns(10);
 		
+		/**
+		 * Quando viene cliccato il pulsante 'ok', in base al valore di scelta che dipenderà
+		 * da quale pulsante si è cliccato nella finestra precedente, il contenuto del textField
+		 * verrà visualizzato come nuovo ogetto della classe NumeroTelefonoMobile e verrà passato come
+		 * metodo alla funzione addNumeroContatto (funzione della classe NumeroTelefonoMobile), se la scelta è M; 
+		 * altrimenti se la scelta è F, il contenuto del textField verrà visualizzato come 
+		 * nuovo ogetto della classe NumeroTelefonoFisso e verrà passato come
+		 * metodo alla funzione addNumeroContatto (funzione della classe NumeroTelefonoFisso)
+		 * 
+		 */
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -71,7 +97,17 @@ public class AggiungiNumeroTelefono extends JFrame {
 			}
 		});
 		
+
+		/**
+		 * Quando il pulsante annulla verrà cliccato si ritornerà alla schermata contatti perdendo i dati inseriti
+		 */
+		
 		JButton btnNewButton_1 = new JButton("Annulla");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				c.tryIndietroAggiungiNumeroTelefono(coin);
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

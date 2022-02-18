@@ -36,17 +36,34 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
+/**
+ * La Classe SchermataContatti consente di visualizzare tutti contatti, di cercarli o di effettuare modifiche su di essi.
+ */
 public class SchermataContatti extends JFrame {
 
 	private JPanel contentPane;
+	
+	/** c è la variabile che usiamo per gestire la visibilità. */
 	private GestioneVisibilitaGUI c;
+	
+	/** con è la variabile associata al controller. */
 	private Controller con;
-	private String nomeContatto = "";
+	
+	/** contatti model è una lista model che ci consente di aggiornare la pagina a ogni modifica. */
 	private DefaultListModel<Contatto> contattiModel = new DefaultListModel<>();
+	
+	/** contatti l'array list di tutti i contatti presenti nella rubrica. */
 	private ArrayList<Contatto> contatti = new ArrayList<>();
+	
+	/** text field è la variabile usata per far iserire la stringa di ricerca all'utente. */
 	private JTextField textField;
+	
 	/**
-	 * Create the frame.
+	 * Instanziamo una nuova schermata contatti.
+	 *
+	 *@param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 *@param cin è la variabile del controller
+	 *@param isCresc è la variabile che serve per sapere se bisogna stampare i contatti in ordine decrescente o crescente
 	 */
 	public SchermataContatti(GestioneVisibilitaGUI in, Controller cin, boolean isCresc) {
 		c = in;
@@ -157,9 +174,7 @@ public class SchermataContatti extends JFrame {
 		JComboBox comboBox = new JComboBox(x);
 		
 		JButton btnNewButton_7 = new JButton("Cerca");
-		
-			
-			btnNewButton_7.addActionListener(new ActionListener() {
+				btnNewButton_7.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(textField.getText().isEmpty() == false)
 					{
@@ -189,88 +204,84 @@ public class SchermataContatti extends JFrame {
 							contattiModel.addAll(ricerca);
 						}
 					}
+					}});
 					
-				}});
+					JButton btnNewButton_8 = new JButton("Annulla Ricerca");
+					btnNewButton_8.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							contattiModel.clear();
+							contattiModel.addAll(contatti);
+							}
+				});
 		
-		JButton btnNewButton_8 = new JButton("Annulla Ricerca");
-		btnNewButton_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				contattiModel.clear();
-				contattiModel.addAll(contatti);
+					GroupLayout gl_contentPane = new GroupLayout(contentPane);
+					gl_contentPane.setHorizontalGroup(
+						gl_contentPane.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGap(82)
+								.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(btnNewButton_5, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(btnNewButton_6, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+								.addGap(40))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+										.addGap(187)
+										.addComponent(lblNewLabel)
+										.addGap(317))
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addContainerGap()
+										.addComponent(textField, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnNewButton_7, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnNewButton_8)
+										.addGap(19)
+										.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addGap(137)))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addComponent(btnNewButton_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+									.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+									.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(list, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+								.addGap(528))
+					);
+					gl_contentPane.setVerticalGroup(
+						gl_contentPane.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+									.addComponent(btnNewButton)
+									.addComponent(lblNewLabel)
+									.addComponent(btnNewButton_4))
+								.addGap(18)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(btnNewButton_3)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnNewButton_2))
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+											.addComponent(textField, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+											.addComponent(btnNewButton_7)
+											.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addComponent(lblNewLabel_2)
+											.addComponent(btnNewButton_8))
+										.addPreferredGap(ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+										.addComponent(list)))
+								.addGap(480)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+									.addComponent(btnNewButton_6)
+									.addComponent(btnNewButton_5)
+									.addComponent(btnNewButton_1))
+								.addContainerGap())
+					);
+					contentPane.setLayout(gl_contentPane);
+				}
 			}
-		});
-	
-		
-		
-		
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(82)
-					.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_5, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_6, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-					.addGap(40))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-							.addGap(187)
-							.addComponent(lblNewLabel)
-							.addGap(317))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton_7, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton_8)
-							.addGap(19)
-							.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(137)))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-						.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-						.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(list, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-					.addGap(528))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton)
-						.addComponent(lblNewLabel)
-						.addComponent(btnNewButton_4))
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnNewButton_3)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton_2))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_7)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_2)
-								.addComponent(btnNewButton_8))
-							.addPreferredGap(ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-							.addComponent(list)))
-					.addGap(480)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton_6)
-						.addComponent(btnNewButton_5)
-						.addComponent(btnNewButton_1))
-					.addContainerGap())
-		);
-		contentPane.setLayout(gl_contentPane);
-	}
-}

@@ -24,15 +24,33 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * La Classe VisualizzaContattoAccountMessaggistica consente di visualizzare, modificare,
+ * aggiungere ed eliminare un accoount di messaggistica relativo a un determinato utente. 
+ */
 public class VisualizzaContattoAccountMessaggistica extends JFrame {
 
+
 	private JPanel contentPane;
-	private Controller con;
+	
+	/** c è la variabile che usiamo per gestire la visibilità. */
 	private GestioneVisibilitaGUI c;
+	
+	/** con è la variabile associata al controller. */
+	private Controller con;
+	
+	/** amModel è una lista model che ci consente di aggiornare la pagina a ogni modifica. */
 	private DefaultListModel<AccountMessaggistica> amModel = new DefaultListModel<>();
+	
+	/** l' accountmess è l'array list contententi tutti gli account di messaggistica. */
 	private ArrayList<AccountMessaggistica> accountmess = new ArrayList<>();
+	
 	/**
-	 * Create the frame.
+	 *
+	 * @param in è la variabile relativa a questa finestra nella classe gestioneVisibilità
+	 * @param cin è la variabile del controller
+	 * @param conin è la variabile relativa al contatto
 	 */
 	public VisualizzaContattoAccountMessaggistica(GestioneVisibilitaGUI in, Controller cin, Contatto conin) {
 		c = in;
